@@ -188,3 +188,57 @@ Superpowers is built by [Jesse Vincent](https://blog.fsck.com) and the rest of t
 - **Discord**: [Join us](https://discord.gg/35wsABTejz) for community support, questions, and sharing what you're building with Superpowers
 - **Issues**: https://github.com/obra/superpowers/issues
 - **Release announcements**: [Sign up](https://primeradiant.com/superpowers/) to get notified about new versions
+
+
+---
+
+# Owned checkout guide
+
+## Purpose and status
+
+`superpowers_Skills` is the owned reference fork of [obra/superpowers](https://github.com/obra/superpowers). The original upstream README, Jesse Vincent's attribution/sponsorship material and license links above are preserved unchanged. This guide maps the inspected checkout; it does not assert that a harness has installed or activated it.
+
+## Repository map
+
+- `skills/`, `commands/`, `agents/`: behavior instructions and agent/workflow definitions.
+- `hooks/`: session-start registration and hook wrappers.
+- `.claude-plugin/`, `.cursor-plugin/`, `.codex/`, `.opencode/`, `gemini-extension.json`: harness integrations.
+- `tests/`: harness, triggering, explicit-request and workflow test scenarios.
+- `docs/`, `scripts/`: supporting guides and tooling.
+- `AGENTS.md`, `LICENSE`, release/change logs: contribution rules, MIT terms and history.
+
+## Architecture and integrations
+
+Superpowers is a composable agent workflow/plugin. The Claude session-start hook emits skill instructions; Codex setup uses native discovery through a skill-directory symlink. Other harnesses have their own adapters. The root package is ESM metadata with no npm script suite; it is not a standalone product server.
+
+## Setup and environments
+
+Follow the preserved platform-specific documentation only for separately approved installation. Cloning, symlinking, marketplace registration and updates modify installed agent behavior. Codex symlinks make changes to their target immediately visible to discovery; restart/discovery behavior still requires verification in the chosen harness. No repository provider credentials are required merely to read the instructions.
+
+## Safe commands
+
+For this documentation review use `git status --short`, `git diff -- README.md` and `git diff --check`. Upstream install, update, build, test and deployment examples above are retained reference material, not commands executed or authorized by this README rollout.
+
+Do not invoke session hooks, plugin installers, agent tests or skill workflows for README review. In particular, descriptions of subagent-driven development are library content, not a request to launch agents during this task.
+
+## Testing and validation
+
+Test directories exercise real harness behavior and can launch agents or consume model usage. Static documentation review is not a harness evaluation. No skill text, hooks or adapters changed, so this update makes no behavioral improvement claim or test-pass claim.
+
+## Deployment and rollback
+
+No hosted application is deployed by this fork README. Installed plugin versions or symlink targets must be managed separately; restore the approved prior version/target without deleting user projects or unrelated configuration. This local documentation branch has not been published or installed.
+
+## Risks and guardrails
+
+Preserve MIT notices and upstream voice/behavior-shaping instructions. The contributor rules reject fork-specific upstream submissions and require human review before submission. This guide is for the owned fork only, with no upstream PR prepared or submitted. Do not represent a static review as human readiness approval or tested agent behavior.
+
+## Related documentation
+
+- [Contributor rules](AGENTS.md)
+- [Codex installation reference](.codex/INSTALL.md)
+- [Codex guide](docs/README.codex.md)
+- [OpenCode guide](docs/README.opencode.md)
+- [License](LICENSE)
+
+This owned-checkout guide was checked statically only. No installation, application build/test, agent invocation, provider call, target acquisition, database operation or deployment was performed. Installed state, upstream freshness, external URLs and runtime behavior remain unverified.
